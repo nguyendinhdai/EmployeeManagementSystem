@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "employee_id": "00679",
+    "full_name": "Nguyen Dinh Dai",
+	"age": 30
+}
+  
+. Content-Type: application/json
+
+1. http://kien-employeemanagementsystem.eu-gb.mybluemix.net/find/all
+2. http://kien-employeemanagementsystem.eu-gb.mybluemix.net/add
+

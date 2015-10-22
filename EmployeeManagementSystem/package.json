@@ -1,0 +1,17 @@
+{
+  "name": "EmployeeManagementSystem",
+  "version": "0.0.1",
+  "engines": {
+        "node":     "0.10.x"
+    },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "3.3.8",
+    "hogan-express": "*",
+    "request":"*",
+    "mysql": "*",
+    "body-parser":"1.5.2"
+  }
+}
