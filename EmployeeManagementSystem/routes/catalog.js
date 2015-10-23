@@ -21,10 +21,17 @@ exports.getMySqlDb = function() {
 };
 
 exports.getCloudantDb = function() {
-	var cloudant = {
-		url : "https://85deae94-be72-4dfc-b306-c6b88da04faa-bluemix:9ac97414761b9bbb379dfdac1505c1a882f639ae9195a7f2af88412e13dffc30@85deae94-be72-4dfc-b306-c6b88da04faa-bluemix.cloudant.com"
-	};
+	if (process.env.VCAP_SERVICES) {
+		var services = JSON.parse(process.env.VCAP_SERVICES || "{}");
+		for ( var svcName in services) {
+			if (svcName.match(/^cloudantNoSQLDB/)) {
+				var cloudant = services[svcName][0].credentials;
 
-	var nano = require('nano')(cloudant.url);
-	return nano.db.use('ems');
+				var nano = require('nano')(cloudant.url);
+				return nano.db.use('ems');
+			}
+		}
+	}
+
+	throw new Error('can not get connection!!!');
 };
