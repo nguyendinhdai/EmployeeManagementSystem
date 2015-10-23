@@ -14,24 +14,41 @@ exports.findByEmployeeId = function(db) {
 	return function(req, res) {
 		var employeeId = req.param('employeeId');
 
-		db.list(function(err, body) {
-			if (!err) {
-				var rows = body.rows;
-				rows.forEach(function(row) {
-					db.get(row.id, function(err, data, headers) {
-						if (err) {
-							res.send("ERROR:" + err);
-						}
-
-						if (data.employee_id === employeeId) {
-							res.send(data);
-						}
-					});
-				});
-			} else {
+		db.view('views', 'find_all', function(err, body) {
+			if (err) {
 				res.send("ERROR:" + err);
 			}
+
+			var rows = body.rows;
+			rows.forEach(function(row) {
+				var data = row.key;
+				if (data.employee_id === employeeId) {
+					res.send(data);
+				}
+			});
+			
+			res.send("Not found!!");
 		});
+
+//		db.list(function(err, body) {
+//			if (!err) {
+//				var rows = body.rows;
+//				rows.forEach(function(row) {
+//					db.get(row.id, function(err, data, headers) {
+//						if (err) {
+//							res.send("ERROR:" + err);
+//						}
+//
+//						if (data.employee_id === employeeId) {
+//							res.send(data);
+//						}
+//					});
+//				});
+//			} else {
+//				res.send("ERROR:" + err);
+//			}
+//		});
+
 	};
 };
 
