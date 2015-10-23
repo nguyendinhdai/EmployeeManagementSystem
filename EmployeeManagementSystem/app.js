@@ -15,6 +15,7 @@ var db = catalog.getCloudantDb();
 
 // define services
 app.get('/find/all', employee.findAll(db));
+app.get('/find/:employeeId', employee.findByEmployeeId(db));
 app.post('/add', employee.add(db));
 
 // start server

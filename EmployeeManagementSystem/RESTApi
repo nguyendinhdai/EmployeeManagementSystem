@@ -1,5 +1,4 @@
 {
-    "id": 1,
     "employee_id": "00679",
     "full_name": "Nguyen Dinh Dai",
 	"age": 30
@@ -9,4 +8,4 @@
 
 1. http://kien-employeemanagementsystem.eu-gb.mybluemix.net/find/all
 2. http://kien-employeemanagementsystem.eu-gb.mybluemix.net/add
-
+3. http://kien-employeemanagementsystem.eu-gb.mybluemix.net/find/00679
