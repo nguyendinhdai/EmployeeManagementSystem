@@ -29,26 +29,6 @@ exports.findByEmployeeId = function(db) {
 			
 			res.send("Not found!!");
 		});
-
-//		db.list(function(err, body) {
-//			if (!err) {
-//				var rows = body.rows;
-//				rows.forEach(function(row) {
-//					db.get(row.id, function(err, data, headers) {
-//						if (err) {
-//							res.send("ERROR:" + err);
-//						}
-//
-//						if (data.employee_id === employeeId) {
-//							res.send(data);
-//						}
-//					});
-//				});
-//			} else {
-//				res.send("ERROR:" + err);
-//			}
-//		});
-
 	};
 };
 
