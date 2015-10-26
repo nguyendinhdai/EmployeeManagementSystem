@@ -23,8 +23,7 @@ app.post('/token/add', notifications.add(db_token));
 app.get('/token/find/all', notifications.findAll(db_token));
 app.get('/token/remove/:token', notifications.remove(db_token));
 
-// the IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts
-// this application:
+// the IP address of the Cloud Foundry DEA (Droplet Execution Agent):
 var host = (process.env.VCAP_APP_HOST || 'localhost');
 // the port on the DEA for communication with the application:
 var port = (process.env.VCAP_APP_PORT || 3000);
