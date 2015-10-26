@@ -9,11 +9,11 @@ This application is a Nodejs application and will be deployed on IBM Bluemix. Th
 REST API
 ===
 Get a list of employees:
-- http://kien-employeemanagementsystem.eu-gb.mybluemix.net/find/all
+- http://kien-employeemanagementsystem.eu-gb.mybluemix.net/employee/find/all
 
 Save/Get employee's info (use BluemixCloudant database):
-- http://kien-employeemanagementsystem.eu-gb.mybluemix.net/add
-- http://kien-employeemanagementsystem.eu-gb.mybluemix.net/find/00679
+- http://kien-employeemanagementsystem.eu-gb.mybluemix.net/employee/add
+- http://kien-employeemanagementsystem.eu-gb.mybluemix.net/employee/find/00679
 
 Data for testing:
 {
@@ -28,9 +28,11 @@ Please vitsit link for the details API:
 https://console.developers.google.com
 https://hub.jazz.net/
 
-http://kien-employeemanagementsystem.eu-gb.mybluemix.net/regToken
+http://kien-employeemanagementsystem.eu-gb.mybluemix.net/token/remove/token1
+http://kien-employeemanagementsystem.eu-gb.mybluemix.net/token/find/all
+http://kien-employeemanagementsystem.eu-gb.mybluemix.net/token/add
 Data for testing:
 {
-    "token": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+    "token": "token1"
 }
 Content-Type: application/json

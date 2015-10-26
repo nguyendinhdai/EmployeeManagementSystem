@@ -36,7 +36,7 @@ exports.sendNotifications = function(msg) {
 	}
 };
 
-exports.regToken = function(db) {
+exports.add = function(db) {
 	return function(req, res) {
 		var data = req.body;
 		res.setHeader('Content-Type', 'application/json');
@@ -51,6 +51,55 @@ exports.regToken = function(db) {
 					"ERROR" : err
 				});
 			}
+		});
+	};
+};
+
+exports.remove = function(db) {
+	return function(req, res) {
+		res.setHeader('Content-Type', 'application/json');
+
+		var token = req.param('token');
+		db.view('views', 'find_all', function(err, body) {
+			if (err) {
+				res.json({
+					"ERROR" : err
+				});
+			} else {
+				var rows = body.rows;
+				rows.forEach(function(row) {
+					var data = row.key;
+					if (data.token === token) {
+						db.destroy(row.id, data._rev, function(err, body) {
+							if (!err) {
+								res.json({
+									'action' : 'data removed'
+								});
+							} else {
+								res.json({
+									"ERROR" : err
+								});
+							}
+						});
+					} else {
+						res.json({
+							"ERROR" : "Not Found"
+						});
+					}
+				});
+			}
+		});
+	};
+};
+
+exports.findAll = function(db) {
+	return function(req, res) {
+		db.view('views', 'find_all', function(err, tokens) {
+			if (err) {
+				res.send("ERROR:" + err);
+			}
+
+			res.send(tokens);
 		});
 	};
 };

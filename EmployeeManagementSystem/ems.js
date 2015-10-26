@@ -14,12 +14,14 @@ var db_ems = catalog.getCloudantDb('ems');
 var db_token = catalog.getCloudantDb('token');
 
 // employee's services
-app.get('/find/all', employee.findAll(db_ems));
-app.get('/find/:employeeId', employee.findByEmployeeId(db_ems));
-app.post('/add', employee.add(db_ems));
+app.get('/employee/find/all', employee.findAll(db_ems));
+app.get('/employee/find/:employeeId', employee.findByEmployeeId(db_ems));
+app.post('/employee/add', employee.add(db_ems));
 
 // token's services
-app.post('/regToken', notifications.regToken(db_token));
+app.post('/token/add', notifications.add(db_token));
+app.get('/token/find/all', notifications.findAll(db_token));
+app.get('/token/remove/:token', notifications.remove(db_token));
 
 // the IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts
 // this application:
