@@ -26,7 +26,7 @@ exports.findByEmployeeId = function(db) {
 					res.send(data);
 				}
 			});
-			
+
 			res.send("Not found!!");
 		});
 	};
@@ -37,16 +37,24 @@ exports.add = function(db) {
 		var data = req.body;
 		res.setHeader('Content-Type', 'application/json');
 
-		db.insert(data, function(err, body, header) {
-			if (!err) {
-				res.json({
-					'action' : 'data created'
-				});
-			} else {
-				res.json({
-					"ERROR" : err
-				});
-			}
-		});
+		db
+				.insert(
+						data,
+						function(err, body, header) {
+							if (!err) {
+								// TODO send notifications to devices
+								require('./notifications')
+										.sendNotifications(
+												'Have a new employee added to system, please approval or reject it.');
+
+								res.json({
+									'action' : 'data created'
+								});
+							} else {
+								res.json({
+									"ERROR" : err
+								});
+							}
+						});
 	};
 };

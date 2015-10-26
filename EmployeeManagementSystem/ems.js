@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 
 var employee = require('./routes/employee');
 var catalog = require('./routes/catalog');
+var notifications = require('./routes/notifications');
 
 var app = express();
 app.use(bodyParser.json());
@@ -10,11 +11,15 @@ app.use(app.router);
 app.use(express.errorHandler());
 
 var db_ems = catalog.getCloudantDb('ems');
+var db_token = catalog.getCloudantDb('token');
 
-// define services
+// employee's services
 app.get('/find/all', employee.findAll(db_ems));
 app.get('/find/:employeeId', employee.findByEmployeeId(db_ems));
 app.post('/add', employee.add(db_ems));
+
+// token's services
+app.post('/regToken', notifications.regToken(db_token));
 
 // the IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts
 // this application:

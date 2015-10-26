@@ -27,3 +27,10 @@ Google clound message
 Please vitsit link for the details API:
 https://console.developers.google.com
 https://hub.jazz.net/
+
+http://kien-employeemanagementsystem.eu-gb.mybluemix.net/regToken
+Data for testing:
+{
+    "token": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+}
+Content-Type: application/json
