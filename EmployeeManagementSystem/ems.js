@@ -4,15 +4,15 @@ var bodyParser = require('body-parser');
 var employee = require('./routes/employee');
 var catalog = require('./routes/catalog');
 var notifications = require('./routes/notifications');
-var config = require('./config/config.global');
+var cf = require('./config/config.global');
 
 var app = express();
 app.use(bodyParser.json());
 app.use(app.router);
 app.use(express.errorHandler());
 
-var db_ems = catalog.getCloudantDb(config.cloudant.ems);
-var db_token = catalog.getCloudantDb(config.cloudant.token);
+var db_ems = catalog.getCloudantDb(cf.cloudant.ems);
+var db_token = catalog.getCloudantDb(cf.cloudant.token);
 
 // employee's services
 app.get('/employee/find/all', employee.findAll(db_ems));
