@@ -1,6 +1,6 @@
 {
 	"name": "EmployeeManagementSystem",
-	"version": "1.0",
+	"version": "0.0.1",
 	"description": "Cloud-Based Employee Management System",
 	
 	"engines": {
@@ -23,15 +23,5 @@
     	"jade": ">=1.1.4",
     	
     	"node-gcm": "0.9.x"
-    },
-    
-    "repository": "",
-    "keywords": [
-                 "EMS",
-                 "Rest API",
-                 "Nodeclipse"
-    ],
-    "author": "Kien-Nguyen Dinh",
-    "license": "BSD",
-    "readmeFilename": "README.md"
+    }
 }
