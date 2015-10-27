@@ -27,7 +27,7 @@ exports.findByEmployeeId = function(db) {
 				}
 			});
 
-			res.send("Not found!!");
+			res.send("Notfound");
 		});
 	};
 };
@@ -48,11 +48,11 @@ exports.add = function(db) {
 												'Have a new employee added to system, please approval or reject it.');
 
 								res.json({
-									'action' : 'data created'
+									'action' : 'created'
 								});
 							} else {
 								res.json({
-									"ERROR" : err
+									'action' : err
 								});
 							}
 						});

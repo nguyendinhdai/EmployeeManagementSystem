@@ -44,11 +44,11 @@ exports.add = function(db) {
 		db.insert(data, function(err, body, header) {
 			if (!err) {
 				res.json({
-					'action' : 'data created'
+					'status' : 'created'
 				});
 			} else {
 				res.json({
-					"ERROR" : err
+					'status' : err
 				});
 			}
 		});
@@ -63,7 +63,7 @@ exports.remove = function(db) {
 		db.view('views', 'find_all', function(err, body) {
 			if (err) {
 				res.json({
-					"ERROR" : err
+					"status" : err
 				});
 			} else {
 				var rows = body.rows;
@@ -73,17 +73,17 @@ exports.remove = function(db) {
 						db.destroy(row.id, data._rev, function(err, body) {
 							if (!err) {
 								res.json({
-									'action' : 'data removed'
+									'status' : 'removed'
 								});
 							} else {
 								res.json({
-									"ERROR" : err
+									'status' : err
 								});
 							}
 						});
 					} else {
 						res.json({
-							"ERROR" : "Not Found"
+							'status' : 'Notfound'
 						});
 					}
 				});
