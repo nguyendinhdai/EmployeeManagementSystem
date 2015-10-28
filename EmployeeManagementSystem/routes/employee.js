@@ -48,11 +48,11 @@ exports.add = function(db) {
 												'Have a new employee added to system, please approval or reject it.');
 
 								res.json({
-									'action' : 'created'
+									'status' : 'created'
 								});
 							} else {
 								res.json({
-									'action' : err
+									'status' : err
 								});
 							}
 						});

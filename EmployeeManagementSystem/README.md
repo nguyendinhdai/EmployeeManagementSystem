@@ -13,7 +13,7 @@ http://employeemanagementsystem-cloudant.eu-gb.mybluemix.net/employee/find/all
 
 Save/Get employee's info (use BluemixCloudant database):
 http://employeemanagementsystem-cloudant.eu-gb.mybluemix.net/employee/add
-http://employeemanagementsystem-cloudant.eu-gb.mybluemix.net/employee/find/00679
+http://employeemanagementsystem-cloudant.eu-gb.mybluemix.net/employee/find/00900000000
 
 Data for testing:
 {
