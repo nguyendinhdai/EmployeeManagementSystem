@@ -17,7 +17,9 @@ var db_token = catalog.getCloudantDb(cf.cloudant.token);
 // employee's services
 app.get('/employee/find/all', employee.findAll(db_ems));
 app.get('/employee/find/:employeeId', employee.findByEmployeeId(db_ems));
+app.get('/employee/find/status/:employeeStatus', employee.findByEmployeeByStatus(db_ems));
 app.post('/employee/add', employee.add(db_ems));
+app.post('/employee/update', employee.update(db_ems));
 
 // token's services
 app.post('/token/add', notifications.add(db_token));
