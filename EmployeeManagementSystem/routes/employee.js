@@ -17,7 +17,9 @@ exports.findByEmployeeByStatus = function(db) {
 		var view_name = "employee_" + employeeStatus;
 		db.view('views', view_name, function(err, employees) {
 			if (err) {
-				res.send("ERROR:" + err);
+				res.json({
+					'status' : err
+				});
 			}
 			res.send(employees);
 		});

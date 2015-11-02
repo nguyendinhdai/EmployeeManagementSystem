@@ -21,10 +21,10 @@ exports.sendNotifications = function(msg) {
 	});
 
 	// TODO please provide the API_KEY
-	var sender = new gcm.Sender("API_KEY");
+	var sender = new gcm.Sender("AIzaSyB9iXYvWIDW8AqYq2UUdOvMh_Mr2SGiKIM");
 
 	// registration of device ids
-	var registrationIds = [];
+	var registrationIds = [ 'bf725c60-4886-3b08-9690-6b9fad9589cc' ];
 
 	if (registrationIds.length === 0) {
 		console

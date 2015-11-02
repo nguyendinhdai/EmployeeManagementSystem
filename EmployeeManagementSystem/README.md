@@ -27,16 +27,11 @@ REST API
 	    "status": "approved"
 	}
 4. http://employeemanagementsystem-cloudant.eu-gb.mybluemix.net/employee/find/5555555555
-5. http://employeemanagementsystem-cloudant.eu-gb.mybluemix.net/employee/find/status/approved
+5. http://employeemanagementsystem-cloudant.eu-gb.mybluemix.net/employee/find/status/pending
 
 Google clound message
 ===
-A. http://daind-w7:10080/_MobileBrowserSimulator/index.html?webpage=http://daind-w7:10080/EmployeeManagementSystemClient/apps/services/preview/EmployeeManagementSystemClient/android/1.0/default/index.html&devicesFilePath=devices.json&skinsFilePath=skinslist.json&smartPreview=Off&platform=android&showSingleEnvironment=android&ips=192.168.0.30
-
-B. http://daind-w7:10080/_MobileBrowserSimulator/index.html?webpage=http://daind-w7:10080/EmployeeManagementSystemManager/apps/services/preview/EmployeeManagementSystemManager/android/1.0/default/index.html&devicesFilePath=devices.json&skinsFilePath=skinslist.json&smartPreview=Off&platform=android&showSingleEnvironment=android&ips=192.168.0.30
-
-C. https://console.developers.google.com
-D. https://hub.jazz.net/
+- <permission android:name="com.google.android.c2dm.permission.RECEIVE"></permission>
 
 1. http://employeemanagementsystem-cloudant.eu-gb.mybluemix.net/token/remove/token1
 2. http://employeemanagementsystem-cloudant.eu-gb.mybluemix.net/token/find/all
