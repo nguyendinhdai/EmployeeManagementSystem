@@ -6,6 +6,19 @@ exports.log = function(msg) {
 	console.log(msg);
 };
 
+exports.sendPush = function(push, employee_id) {
+	var message = {
+		alert : "{\"mess\":\"Have an employee added to system, please review it and approval or reject the Employee!\",\"employee_id\":\""+employee_id+"\"}",
+		url : "https://www.bluemix.net"
+	};
+
+	push.sendBroadcastNotification(message).then(function(response) {
+		console.log(response);
+	}, function(err) {
+		console.log(err);
+	});
+};
+
 exports.sendNotifications = function(msg) {
 	var gcm = require('node-gcm');
 

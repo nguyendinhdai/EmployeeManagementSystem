@@ -1,6 +1,6 @@
-exports.findAll = function(db) {
+exports.findAll = function(db_ems) {
 	return function(req, res) {
-		db.view('views', 'find_all', function(err, employees) {
+		db_ems.view('views', 'find_all', function(err, employees) {
 			if (err) {
 				res.send("ERROR:" + err);
 			}
@@ -93,29 +93,29 @@ exports.update = function(db) {
 	};
 };
 
-exports.add = function(db) {
+exports.add = function(db, push) {
 	return function(req, res) {
 		var data = req.body;
 		res.setHeader('Content-Type', 'application/json');
-
-		db
-				.insert(
-						data,
-						function(err, body, header) {
-							if (!err) {
-								// TODO send notifications to devices
-								require('./notifications')
-										.sendNotifications(
-												'Have a new employee added to system, please approval or reject it.');
-
-								res.json({
-									'status' : 'created'
-								});
-							} else {
-								res.json({
-									'status' : err
-								});
-							}
-						});
+		
+//		console.log('data.employee_id' + data.employee_id);
+//		require('./notifications').sendPush(push, data.employee_id);
+//		res.json({
+//			'status' : 'created'
+//		});
+		
+		db.insert(data, function(err, body, header) {
+			if (!err) {
+				require('./notifications').sendPush(push, data.employee_id);
+				res.json({
+					'status' : 'created'
+				});
+			} else {
+				res.json({
+					'status' : err
+				});
+			}
+		});
+		
 	};
 };

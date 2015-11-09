@@ -12,6 +12,10 @@
     },
     
     "dependencies": {
+    	"ibmcloudcode":"*",
+    	"ibmbluemix":"*",
+    	"ibmpush":"*",
+    	
     	"request":"*",
     	
     	"express": "3.3.8",
